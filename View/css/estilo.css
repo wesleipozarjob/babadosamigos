@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #FB7E0A 0%, #F88215 100%);
+    
+}
+
+
+#titulo {
+   top: 50%;
+   left: 50%;
+   text-align: center;
+   
+        
+}
+
+
+.botoes{
+    text-align: center;
+}
+
+.botao1{
+    width: 250px;
+    height: 30px;
+    border-radius: 8px;
+    background: #D9D9D9;
+    font-weight: bold;
+    font-family: Jomhuria;
+    font-size: 20px;
+    cursor: pointer;
+
+}
+.botao2{
+    width: 250px;
+    height: 30px;
+    border-radius: 8px;
+    background: #D9D9D9;
+    font-weight: bold;
+    font-family: Jomhuria;
+    font-size: 20px;
+    cursor: pointer;
+}
+div.botoes a {
+    text-decoration: none;
+}
+
+div.botoes a h2 {
+    color: #080808;
+    font-family: Jomhuria;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 0px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+footer p {
+    margin-bottom: -20px; /* Reduz a margem inferior do parágrafo para ajustar o espaço */
+}
+
+ul.rede-social {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 3px;
+}
+
+ul.rede-social li {
+    display: inline;
+    margin-right: 10px;
+}
+
+ul.rede-social li img{
+    width: 25px;
+    
+}

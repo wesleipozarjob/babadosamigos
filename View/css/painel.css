@@ -1,0 +1,98 @@
+
+  body{
+    font-family: 'Anton', sans-serif;
+    padding: 0;
+    margin:0;
+    background: linear-gradient(180deg, #FB7E0A 0%, #F88215 100%);
+}
+
+.add{
+  position: absolute;
+  top: 24%;
+  
+  border: none;
+  right: 90px;
+}
+.add a:hover{
+  background-color:#FB7E0A;
+}
+.nav{
+  background-color: #FB7E0A;
+  height: 60px;
+}
+h1{
+  font-size: 38px;
+  color: #0c0c0c;
+  font-family: Jomhuria;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+
+ 
+ }
+ 
+a{
+  text-decoration: none;
+  color: #e4bf08;
+}
+.botao{
+  background-color: gray;
+  float: right;
+  margin: 5px;
+  height: 30px;
+  
+}
+h2{
+  text-align: center;
+  color: #e4bf08;
+  font-size: 25px;
+}
+th{
+  color: #e4bf08;
+  text-align: center;
+}
+td{
+  color: #e4bf08;
+  text-align: center;
+}
+.small-font {
+  font-size: 12px; /* Tamanho da fonte desejado */
+}
+
+
+
+@media (max-width: 800px){
+  .botao{
+  background-color: black;
+  position: absolute;
+    top: 1%;
+    left: 80%;
+    border-radius: 12px;
+  
+}
+}
+@media (max-width: 600px){
+  .botao{
+ margin-left:30px; 
+ background-color: black;
+  position: absolute;
+    top: -1%;
+    left: 80%;
+    border-radius: 12px;
+}
+.container{
+  width: auto;
+}
+footer {
+    background-color: #333;
+    color: white;
+    padding: 0px 0;
+    text-align: center;
+    position: fixed; /* Define a posição como fixa */
+    bottom: 0; /* Fixa o rodapé na parte inferior da janela do navegador */
+    width: 100%;
+}
+}
+
+   
+    

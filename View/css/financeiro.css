@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #FB7E0A 0%, #F88215 100%);
+    font-family: Arial, sans-serif;
+}
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Ajuste a altura conforme necessário */
+  }
+  
+  .cabecalho {
+    text-align: center;
+    
+  }
+  
+  .cabecalho h1 {
+    margin-top: 10px; /* Ajuste a margem superior conforme necessário */
+  }
+.valor{
+    text-align: center;
+}
+.valor h2{
+    color:#fff;
+    font-size: 48px;
+    font-family: Jomhuria;
+    border-radius: 10px;
+    background-color: #050505;
+}
+
+
+.botao{
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+   
+}
+.botao button{
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Espaçamento interno */
+    border: none; /* Remova a borda padrão */
+    border-radius: 5px; /* Arredonde as bordas */
+    cursor: pointer; /* Altera o cursor ao passar o mouse */
+    font-size: 16px; /* Tamanho da fonte */
+}
+.botao button:hover{
+    background-color: #45a049;
+}

@@ -1,0 +1,95 @@
+body{
+    font-family: 'Anton', sans-serif;
+    padding: 0;
+    background: #FB7E0A;
+    
+}
+section{
+    background-color: #1b1b1971;
+    padding: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    color:#dbd3d3;
+}
+input{
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+    border-radius: 10px;
+}
+.butao{
+    background-color: rgb(20, 20, 20);
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: aliceblue;
+    width: 100%;
+    font-size: 20px;
+}
+.butao:hover{
+    background-color: rgb(139, 131, 7);
+    cursor: pointer;
+}
+section h1{
+    text-align: center;
+}
+section h2{
+    text-align: center;
+}
+section h2 a{
+    text-decoration: none;
+    color:#e4bf08;
+    font-size: 14px;
+}
+section img{
+    width: 180px;
+    position: absolute;
+    top: 0%;
+    left: 28%;
+}
+section h2 a:hover{
+    color: rgba(0, 0, 0, 0.568);
+}
+
+@media (max-width: 600px){
+section{
+    
+        background-color: #1b1b1971;
+        padding: 40px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 12px;
+        color:#e4bf08;
+
+}
+input{
+    padding: 8px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    border-radius: 10px;
+} 
+.butao{
+    background-color: rgb(15, 15, 15);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: aliceblue;
+    width: 100%;
+    font-size: 20px;
+}
+section img{
+    width: 110px;
+    position: absolute;
+    top: 0%;
+    left: 32%;
+}
+
+
+}
