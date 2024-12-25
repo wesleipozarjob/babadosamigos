@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baba dos Amigos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+        .logo img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            width: 200px;
+            height: 60px;
+            font-size: 1.2rem;
+            margin: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        .btn-associados {
+            background-color: #e99c03;
+        }
+        .btn-caixa {
+            background-color: #28a745;
+        }
+        .admin-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-weight: bold;
+        }
+        .welcome-message {
+            font-size: 1.5rem;
+            color: #28a745;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<a href="/login" class="btn btn-dark admin-button">Administrador</a>
+
+<div class="container main-content text-center">
+    <div class="logo">
+        <img src="/logo.png" alt="Logo do Baba dos Amigos">
+    </div>
+
+    <div class="welcome-message">
+        <h2 th:text="${msnBemVindo}"></h2>
+    </div>
+
+    <div>
+        <button class="btn btn-custom btn-associados" onclick="window.location.href='/associados'">Associados</button>
+        <button class="btn btn-custom btn-caixa" onclick="window.location.href='/caixa'">Caixa</button>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

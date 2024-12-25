@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associados - Baba dos Amigos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="logo">
+        <img src="/logo.png" alt="Logo do Baba dos Amigos" style="width: 100px; height: 100px; display: block; margin-left: auto; margin-right: auto;">
+
+
+
+
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>N°</th>
+            <th>Associado</th>
+            <th>Situação</th>
+            <th>Total</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Iterar sobre a lista de associados -->
+        <tr th:each="associado : ${associados}">
+            <td th:text="${associado.numero}"></td>
+            <td th:text="${associado.nome}"></td>
+            <td th:text="${associado.situacao}"></td>
+            <td th:text="${associado.total}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
