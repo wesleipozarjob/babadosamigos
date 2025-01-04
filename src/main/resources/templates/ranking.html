@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking - Baba dos Amigos</title>
+    <link rel="icon" href="/logo.ico" type="image/x-icon">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Adicionando Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Garantir que o body e html ocupem toda a altura */
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* O conteúdo principal deve ocupar o espaço restante da página */
+        .main-content {
+            flex: 1; /* Isso garante que o conteúdo ocupe o espaço disponível */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-bottom: 20px; /* Deixa um espaço no final do conteúdo */
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .table-wrapper {
+            margin-bottom: 50px; /* Espaço inferior extra */
+            width: 100%;
+            max-width: 800px;
+        }
+
+        /* Cor de fundo para Cartão Amarelo */
+        .highlight-yellow {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .highlight-blue {
+            background-color: blue;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Cor de fundo para Cartão Vermelho */
+        .highlight-red {
+            background-color: red;
+            color: white; /* Para garantir que o texto seja visível */
+            font-weight: bold;
+        }
+
+        /* Estilos para a legenda */
+        .legenda {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .legenda h4 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .legenda ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .legenda li {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .legenda li i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .legenda .highlight-yellow {
+            color: #f39c12;
+        }
+
+        .legenda .highlight-blue {
+            color: #3498db;
+        }
+
+        .legenda .highlight-red {
+            color: #e74c3c;
+        }
+
+        .legenda .highlight-green {
+            color: #2ecc71;
+        }
+
+        /* Adicionando o estilo para os ícones na legenda */
+        .legenda li i {
+            font-size: 1.3rem; /* Tamanho do ícone */
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Baba dos Amigos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Início</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/caixa">Caixa</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/associados">Associados</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/estatisticas">Estatisticas</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Ranking dos Associados</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Posição</th>
+            <th>Associado</th>
+            <th>Pontuação</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="estatistica, iterStat : ${ranking}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${estatistica.associado}"></td>
+            <td th:text="${estatistica.pontuacao}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Legenda da Pontuação -->
+<div class="container legenda">
+    <h4>Legenda da Pontuação</h4>
+    <ul>
+        <li><i class="fas fa-square" style="color: yellow;"></i><strong>Cartão Amarelo (CA):</strong><span style="color: red;"> -0.5 pontos</span></li>
+        <li><i class="fas fa-square" style="color: blue;"></i><strong>Cartão Azul (CZ):</strong><span style="color: red;"> -0.7 pontos</span></li>
+        <li><i class="fas fa-square" style="color: red;"></i><strong>Cartão Vermelho (CV):</strong><span style="color: red;">  -2 pontos</span></li>
+        <li><i class="fas fa-futbol" style="color: #2ecc71;"></i><strong>Gols (G) :</strong>  <span style="color: green;">3 pontos</span></li>
+        <li><i class="fas fa-check-circle" style="color: #2ecc71;"></i><strong>Presença (PA): </strong>  <span style="color: green;">1.5 pontos</span></li>
+    </ul>
+</div>
+</div>
+
+<footer>
+    <p>Criado por <strong>Weslei Pozar</strong></p>
+    <a href="https://linkedin.com/in/weslei-pozar" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn" width="30" height="30">
+    </a>
+    <a href="https://wesleipozarjob.github.io/portifolio/" target="_blank">
+        <img src="github.png" alt="GitHub" width="30" height="30">
+    </a>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

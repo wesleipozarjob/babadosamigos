@@ -5,18 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baba dos Amigos</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/logo.ico" type="image/x-icon">
     <style>
-        .main-content {
+        /* Garantir que a página ocupe 100% da altura da tela */
+        html, body {
+            height: 100%;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 80vh;
         }
+
+        /* O conteúdo principal ocupa o restante da tela, empurrando o footer para o fundo */
+        .main-content {
+            flex: 1;  /* Isso faz o conteúdo ocupar o espaço disponível */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 20px; /* Espaço para garantir que o footer não sobreponha */
+        }
+
         .logo img {
             width: 150px;
             margin-bottom: 20px;
         }
+
         .btn-custom {
             width: 200px;
             height: 60px;
@@ -25,47 +39,130 @@
             color: white;
             font-weight: bold;
         }
+
         .btn-associados {
             background-color: #e99c03;
         }
+
         .btn-caixa {
             background-color: #28a745;
         }
+
+        .btn-pix {
+            background-color: #007bff;
+        }
+
+        .btn-estatisticas {
+            background-color: #17a2b8;
+        }
+
+        /* Novo estilo para o botão Ranking com azul escuro */
+        .btn-ranking {
+            background-color: #0056b3; /* Azul escuro */
+        }
+
         .admin-button {
             position: absolute;
             top: 20px;
             right: 20px;
             font-weight: bold;
         }
+
         .welcome-message {
             font-size: 1.5rem;
             color: #28a745;
             margin-bottom: 30px;
         }
+
+        .success-message {
+            font-size: 1rem;
+            color: green;
+            margin-top: 10px;
+            display: none;
+        }
+
+        /* Estilo para o footer */
+        footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para o rodapé */
+        }
+
+        /* Definindo o estilo das imagens do footer */
+        footer img {
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
-
-<a href="/login" class="btn btn-dark admin-button">Administrador</a>
 
 <div class="container main-content text-center">
     <div class="logo">
         <img src="/logo.png" alt="Logo do Baba dos Amigos">
     </div>
 
-    <div class="welcome-message">
-        <h2 th:text="${msnBemVindo}"></h2>
-    </div>
-
     <div>
         <button class="btn btn-custom btn-associados" onclick="window.location.href='/associados'">Associados</button>
         <button class="btn btn-custom btn-caixa" onclick="window.location.href='/caixa'">Caixa</button>
+        <button class="btn btn-custom btn-estatisticas" onclick="window.location.href='/estatisticas'">Estatísticas</button>
+        <button class="btn btn-custom btn-ranking" onclick="window.location.href='/ranking'">Ranking</button> <!-- Novo botão de Ranking -->
+        <!-- Novo botão PIX -->
+        <button class="btn btn-custom btn-pix" onclick="copiarChavePix()">PIX</button>
+    </div>
+
+    <!-- Mensagem de sucesso ao copiar a chave PIX -->
+    <div class="success-message" id="successMessage">
+        Chave PIX copiada com sucesso!
     </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    function copiarChavePix() {
+        // A chave PIX a ser copiada
+        const chavePix = "babadosamigos.2002@hotmail.com";
+
+        // Cria um campo de input temporário para copiar o texto
+        const input = document.createElement("input");
+        input.value = chavePix;
+        document.body.appendChild(input);
+        input.select();
+        input.setSelectionRange(0, 99999); // Para dispositivos móveis
+
+        // Executa o comando de cópia
+        document.execCommand("copy");
+
+        // Remove o campo temporário
+        document.body.removeChild(input);
+
+        // Exibe a mensagem de sucesso
+        const successMessage = document.getElementById("successMessage");
+        successMessage.style.display = "block";
+
+        // Esconde a mensagem após 3 segundos
+        setTimeout(function() {
+            successMessage.style.display = "none";
+        }, 3000);
+    }
+</script>
+
+<!-- Footer -->
+<footer>
+    <p>Criado por <strong>Weslei Pozar</strong></p>
+    <!-- Atualize os caminhos para as imagens do LinkedIn e GitHub na pasta static -->
+    <a href="https://linkedin.com/in/weslei-pozar" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn" width="30" height="30">
+    </a>
+    <a href="https://wesleipozarjob.github.io/portifolio/" target="_blank">
+        <img src="github.png" alt="GitHub" width="30" height="30">
+    </a>
+</footer>
 
 </body>
 </html>

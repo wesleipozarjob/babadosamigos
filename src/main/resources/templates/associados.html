@@ -4,18 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Associados - Baba dos Amigos</title>
+
+    <!-- Definindo o favicon -->
+    <link rel="icon" href="/logo.ico" type="image/x-icon">
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .main-content {
+            padding-bottom: 100px;  /* Aumenta o espaço inferior para o rodapé */
+            min-height: calc(100vh - 60px); /* Altura dinâmica para o conteúdo principal */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 80px; /* Aumenta a altura do rodapé */
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 5px 0; /* Ajuste o padding para ficar totalmente visível */
+            font-size: 1rem;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil para o rodapé */
+        }
+
+        .table-wrapper {
+            margin-bottom: 40px; /* Aumenta a margem inferior */
+            width: 100%;
+            max-width: 800px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container mt-5">
+<!-- Menu de Navegação -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Baba dos Amigos</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Início</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/caixa">Caixa</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/estatisticas">Estatísticas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/ranking">Ranking</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-5 main-content">
     <div class="logo">
         <img src="/logo.png" alt="Logo do Baba dos Amigos" style="width: 100px; height: 100px; display: block; margin-left: auto; margin-right: auto;">
-
-
-
-
     </div>
+
+    <!-- Título com o mês atual -->
+    <h2 class="text-center mb-4" th:text="${#dates.format(new java.util.Date(), 'MMMM yyyy')}"></h2>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -23,21 +84,31 @@
             <th>Associado</th>
             <th>Situação</th>
             <th>Total</th>
-
         </tr>
         </thead>
         <tbody>
         <!-- Iterar sobre a lista de associados -->
-        <tr th:each="associado : ${associados}">
+        <tr th:each="associado : ${associados}"
+            th:classappend="${associado.situacao == 'PENDENTE' ? 'pendente' : ''}">
             <td th:text="${associado.numero}"></td>
             <td th:text="${associado.nome}"></td>
             <td th:text="${associado.situacao}"></td>
             <td th:text="${associado.total}"></td>
-
         </tr>
         </tbody>
     </table>
 </div>
+
+<!-- Rodapé -->
+<footer>
+    <p>Criado por <strong>Weslei Pozar</strong></p>
+    <a href="https://linkedin.com/in/weslei-pozar" target="_blank">
+        <img src="linkedin.png" alt="LinkedIn" width="30" height="30">
+    </a>
+    <a href="https://wesleipozarjob.github.io/portifolio/" target="_blank">
+        <img src="github.png" alt="GitHub" width="30" height="30">
+    </a>
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
