@@ -1,11 +1,11 @@
-# Usar a imagem base do OpenJDK 17
-FROM openjdk:17
+# Etapa de construção
+FROM maven:3.8.6-amazoncorretto-17 as build
+WORKDIR /app
+COPY . . 
+RUN mvn clean package -X -DskipTests
 
-# Definir um argumento para o arquivo JAR
-ARG JAR_FILE=target/*.jar
-
-# Copiar o arquivo JAR gerado pelo Maven/Gradle para o contêiner e renomeá-lo como 'app.jar'
-COPY ${JAR_FILE} app.jar
-
-# Definir o comando para rodar a aplicação Java no contêiner
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+# Etapa de execução
+FROM openjdk:17-ea-10-jdk-slim
+WORKDIR /app
+COPY --from=build /app/target/*.jar ./babadosamigos.jar
+ENTRYPOINT ["java", "-jar", "babadosamigos.jar"]
