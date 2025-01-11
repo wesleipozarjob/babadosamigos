@@ -39,9 +39,9 @@ public class RankingService {
         double vermelho = estatistica.getVermelho() * -2;
         double presenca = estatistica.getPresenca() * 1.2;
         double lider = estatistica.getLider() * 4;
-        double pontuacao = gols + amarelo + azul + vermelho + presenca;
-
-        // Formatar para 2 casas decimais
+        double vice = estatistica.getVice() * 2;
+        double pontuacao = gols + amarelo + azul + vermelho + presenca + vice + lider;
         return Math.round(pontuacao * 100.0) / 100.0;
     }
+
 }

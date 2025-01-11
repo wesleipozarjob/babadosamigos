@@ -23,6 +23,7 @@ public class Estatisticas {
     private int azul;
     private double pontuacao;
     private int lider;
+    private int vice;
     // Getters and setters
 
     public Long getID() {
@@ -104,5 +105,13 @@ public class Estatisticas {
 
     public void setLider(int lider) {
         this.lider = lider;
+    }
+
+    public int getVice() {
+        return vice;
+    }
+
+    public void setVice(int vice) {
+        this.vice = vice;
     }
 }
