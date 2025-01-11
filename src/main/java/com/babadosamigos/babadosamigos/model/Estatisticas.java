@@ -22,7 +22,6 @@ public class Estatisticas {
     private int presenca;
     private int azul;
     private double pontuacao;
-    private double assistencia;
     private int lider;
     // Getters and setters
 
@@ -98,13 +97,6 @@ public class Estatisticas {
         this.pontuacao = pontuacao;
     }
 
-    public double getAssistencia() {
-        return assistencia;
-    }
-
-    public void setAssistencia(double assistencia) {
-        this.assistencia = assistencia;
-    }
 
     public int getLider() {
         return lider;
